@@ -42,4 +42,18 @@ if input is not None:
     progress_bar.progress(100, "Analysis Done")
     result['confidence'] = confidence_result
     st.info(result)
+    col1, col2 = st.columns([2, 1])
+            
+    with col1:
+        st.subheader("Decision")
+        st.info(result['decision'])
+        
+    with col2:
+        st.subheader("Confidence and Risk")
+        st.warning(result['confidence'])
+        
+    with st.expander("Reasoning"):
+        st.write(f"**Intent:** {result['intent']}")
+        st.write(f"**Reasoning:** {result['decision']['result']['reasoning']}")
+        st.markdown(f"** Context:**\n> {result['context']}")
 

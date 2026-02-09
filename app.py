@@ -46,7 +46,7 @@ if input is not None:
             
     with col1:
         st.subheader("Decision")
-        st.info(result['decision']['result]['decision'])
+        st.info(result['decision']['result']['decision'])
         
     with col2:
         st.subheader("Confidence and Risk")

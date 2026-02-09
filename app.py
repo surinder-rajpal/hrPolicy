@@ -50,7 +50,7 @@ if input is not None:
         
     with col2:
         st.subheader("Confidence and Risk")
-        st.warning(result['confidence'])
+        st.info("Confidence: " + result['confidence']['result']['confidenc'] + "\nRisk: " + result['confidence']['result']['risk'])
         
     with st.expander("Reasoning"):
         st.write(f"**Intent:** {result['intent']}")

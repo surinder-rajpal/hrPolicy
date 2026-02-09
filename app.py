@@ -31,7 +31,7 @@ if input is not None:
     progress_bar.progress(50, "Analysing Case")
     case_analysis = case_a.invoke({'query': input, 'intent': intent})
     result['case_analysis'] = case_analysis
-    st.info(case_analysis)
+    # st.info(case_analysis)
 
     progress_bar.progress(80, "Making a decision")
     decision_result = decision.invoke({'query': input, 'context': context, 'key_info': case_analysis['key_info']})
@@ -41,12 +41,12 @@ if input is not None:
     confidence_result = confidence.invoke({'query': input, 'context': context, 'decision': decision_result['result']['decision']})
     progress_bar.progress(100, "Analysis Done")
     result['confidence'] = confidence_result
-    st.info(result)
+    # st.info(result)
     col1, col2 = st.columns([2, 1])
             
     with col1:
         st.subheader("Decision")
-        st.info(result['decision'])
+        st.info(result['decision']['result]['decision'])
         
     with col2:
         st.subheader("Confidence and Risk")
